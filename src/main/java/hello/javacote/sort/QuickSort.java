@@ -87,10 +87,12 @@ public class QuickSort {
                 low++;
             }
 
+            printSwapPos(low, high);
             swap(arr, low, high);
             print(arr);
         }
 
+        printSwapPos(left, low);
         swap(arr, left, low);
         print(arr);
 
@@ -138,5 +140,9 @@ public class QuickSort {
         int temp = arr[x];
         arr[x] = arr[y];
         arr[y] = temp;
+    }
+
+    private static void printSwapPos(int left, int right) {
+        log.info("left: {}, right: {}", left, right);
     }
 }

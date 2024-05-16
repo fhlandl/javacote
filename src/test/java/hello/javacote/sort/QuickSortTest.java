@@ -7,7 +7,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class QuickSortTest {
 
-    int[] arr = {10, 7, 8, 9, 1, 5};
+//    int[] arr = {10, 7, 8, 9, 1, 5};
+    int[] arr = {5, 7, 9, 0, 3, 1, 6, 2, 4, 8};
 
     @BeforeEach
     void printOriginalArray() {
