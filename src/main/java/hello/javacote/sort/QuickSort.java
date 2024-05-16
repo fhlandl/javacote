@@ -1,27 +1,33 @@
 package hello.javacote.sort;
 
+import hello.javacote.annotation.TimeLog;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
 @Slf4j
+@Component
 public class QuickSort {
 
-    public static void middlePivotSort(int[] arr) {
+    @TimeLog
+    public void middlePivotSort(int[] arr) {
         middlePivotSort(arr, 0, arr.length - 1);
     }
 
-    public static void leftPivotSort(int[] arr) {
+    @TimeLog
+    public void leftPivotSort(int[] arr) {
         leftPivotSort(arr, 0, arr.length - 1);
     }
 
-    public static void rightPivotSort(int[] arr) {
+    @TimeLog
+    public void rightPivotSort(int[] arr) {
         rightPivotSort(arr, 0, arr.length - 1);
     }
 
-    public static void print(int[] arr) {
+    public void print(int[] arr) {
         log.info("{}", arr);
     }
 
-    private static void middlePivotSort(int[] arr, int left, int right) {
+    private void middlePivotSort(int[] arr, int left, int right) {
 
         if (left >= right) {
             return;
@@ -33,7 +39,7 @@ public class QuickSort {
         middlePivotSort(arr, pivot + 1, right);
     }
 
-    private static int middlePivotPartition(int[] arr, int left, int right) {
+    private int middlePivotPartition(int[] arr, int left, int right) {
 
         int low = left - 1;
         int high = right + 1;
@@ -60,7 +66,7 @@ public class QuickSort {
         return high;
     }
 
-    private static void leftPivotSort(int[] arr, int left, int right) {
+    private void leftPivotSort(int[] arr, int left, int right) {
         if (left >= right) {
             return;
         }
@@ -71,7 +77,7 @@ public class QuickSort {
         leftPivotSort(arr, pivot + 1, right);
     }
 
-    private static int leftPivotPartition(int[] arr, int left, int right) {
+    private int leftPivotPartition(int[] arr, int left, int right) {
 
         int low = left;
         int high = right;
@@ -99,7 +105,7 @@ public class QuickSort {
         return low;
     }
 
-    private static void rightPivotSort(int[] arr, int left, int right) {
+    private void rightPivotSort(int[] arr, int left, int right) {
         if (left >= right) {
             return;
         }
@@ -110,7 +116,7 @@ public class QuickSort {
         rightPivotSort(arr, pivot + 1, right);
     }
 
-    private static int rightPivotPartition(int[] arr, int left, int right) {
+    private int rightPivotPartition(int[] arr, int left, int right) {
 
         int low = left;
         int high = right;
@@ -136,13 +142,13 @@ public class QuickSort {
         return high;
     }
 
-    private static void swap(int[] arr, int x, int y) {
+    private void swap(int[] arr, int x, int y) {
         int temp = arr[x];
         arr[x] = arr[y];
         arr[y] = temp;
     }
 
-    private static void printSwapPos(int left, int right) {
+    private void printSwapPos(int left, int right) {
         log.info("left: {}, right: {}", left, right);
     }
 }

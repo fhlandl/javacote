@@ -1,32 +1,41 @@
 package hello.javacote.sort;
 
+import hello.javacote.aop.TimeLogAspect;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Import;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@Import({TimeLogAspect.class})
+@SpringBootTest
 class QuickSortTest {
+
+    @Autowired
+    private QuickSort quickSort;
 
 //    int[] arr = {10, 7, 8, 9, 1, 5};
     int[] arr = {5, 7, 9, 0, 3, 1, 6, 2, 4, 8};
 
     @BeforeEach
     void printOriginalArray() {
-        QuickSort.print(arr);
+        quickSort.print(arr);
     }
 
     @Test
     void middlePivotQuickSortTest() {
-        QuickSort.middlePivotSort(arr);
+        quickSort.middlePivotSort(arr);
     }
 
     @Test
     void leftPivotQuickSortTest() {
-        QuickSort.leftPivotSort(arr);
+        quickSort.leftPivotSort(arr);
     }
 
     @Test
     void rightPivotQuickSortTest() {
-        QuickSort.rightPivotSort(arr);
+        quickSort.rightPivotSort(arr);
     }
 }
